@@ -15,17 +15,21 @@ export default function Home() {
   };
 
   const [loading, setLoading] = useState(false);
-  const [pokemonData, setPokemonData] = useState<PokemonDetails>();
+  const [pokemonDataFirst, setPokemonDataFirst] = useState<PokemonDetails>();
+  const [pokemonDataSecond, setPokemonDataSecond] = useState<PokemonDetails>();
 
   useEffect(() => {
   }, []);
 
-  const getRandomThreePokemon = async () => {
+  const getRandomTwoPokemon = async () => {
     setLoading(true);
     try {
-      const getPokemonData = await getRandomPokemon();
-      setPokemonData(getPokemonData);
-      console.log(pokemonData);
+      const getPokemonDataFirst = await getRandomPokemon();
+      setPokemonDataFirst(getPokemonDataFirst);
+
+      const getPokemonDataSecond = await getRandomPokemon();
+      setPokemonDataSecond(getPokemonDataSecond);
+
       setLoading(false)
     } catch (error) {
       console.error("Error fetching Pokémon data:", error);
@@ -39,17 +43,26 @@ export default function Home() {
         <h1>ロード中...</h1>
       ) : (
         <div>
-          <button onClick={getRandomThreePokemon} style={{ padding: "10px 20px", fontSize: "16px" }}>
+          <button onClick={getRandomTwoPokemon} style={{ padding: "10px 20px", fontSize: "16px" }}>
             ランダムなポケモンを取得
           </button>
           <h1>ランダムなポケモン</h1>
           <ul>
-            <li key={pokemonData?.id} style={{ margin: "20px 0" }}>
-              <img src={pokemonData?.image} alt={pokemonData?.name} />
-              <p>名前: {pokemonData?.name}</p>
-              <p>高さ: {pokemonData?.heightInMeters}</p>
-              <p>重さ: {pokemonData?.weightInKg}</p>
-              <p>BMI: {pokemonData?.bmi}</p>
+            <li key={pokemonDataFirst?.id} style={{ margin: "20px 0" }}>
+              <img src={pokemonDataFirst?.image} alt={pokemonDataFirst?.name} />
+              <p>名前: {pokemonDataFirst?.name}</p>
+              <p>高さ: {pokemonDataFirst?.heightInMeters}</p>
+              <p>重さ: {pokemonDataFirst?.weightInKg}</p>
+              <p>BMI: {pokemonDataFirst?.bmi}</p>
+            </li>
+          </ul>
+          <ul>
+            <li key={pokemonDataSecond?.id} style={{ margin: "20px 0" }}>
+              <img src={pokemonDataSecond?.image} alt={pokemonDataSecond?.name} />
+              <p>名前: {pokemonDataSecond?.name}</p>
+              <p>高さ: {pokemonDataSecond?.heightInMeters}</p>
+              <p>重さ: {pokemonDataSecond?.weightInKg}</p>
+              <p>BMI: {pokemonDataSecond?.bmi}</p>
             </li>
           </ul>
         </div>

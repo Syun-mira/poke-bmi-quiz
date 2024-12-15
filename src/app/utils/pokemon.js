@@ -28,7 +28,7 @@ export const calculateBodyFatPercentage = (id, name, image, height, weight) => {
     // BMI を計算
     const bmi = weightInKg / (heightInMeters ** 2);
 
-    // 数値を返すよう修正
+    // 数値を返す
     return {
         id,
         name,
