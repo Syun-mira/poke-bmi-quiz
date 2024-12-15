@@ -4,7 +4,7 @@ export const getRandomPokemon = async () => {
 
     try {
         const response = await fetch(url);
-        const pokemonData = await response.json(); // `await` で解決
+        const pokemonData = await response.json();
 
         // 必要なデータを計算して返す
         return calculateBodyFatPercentage(
@@ -28,7 +28,7 @@ export const calculateBodyFatPercentage = (id, name, image, height, weight) => {
     // BMI を計算
     const bmi = weightInKg / (heightInMeters ** 2);
 
-    // 数値を返す
+    // 必要な数値を返す
     return {
         id,
         name,
