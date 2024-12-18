@@ -20,7 +20,13 @@ export const getRandomPokemon = async () => {
     }
 };
 
-export const calculateBodyFatPercentage = (id, name, image, height, weight) => {
+export const calculateBodyFatPercentage = (
+    id: number,
+    name: string,
+    image: string,
+    height: number,
+    weight: number
+) => {
     // 身長 (m) と 体重 (kg) に変換
     const heightInMeters = height / 10; // dm -> m
     const weightInKg = weight / 10; // hg -> kg
