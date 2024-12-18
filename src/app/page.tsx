@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getRandomPokemon } from "./utils/pokemon.js";
+import { getRandomPokemon } from "./utils/pokemon";
+
 
 export default function Home() {
   type PokemonDetails = {
